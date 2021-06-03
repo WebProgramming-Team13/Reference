@@ -1,7 +1,21 @@
-추가로 코딩해줘야할 사항들입니다.
+추가로 코딩해야할 사항들입니다.
 위쪽일수록 더 높은 우선순위를 가집니다.
 <server>는 서버 측의 코드(.java)를 의미합니다. 
-<client>는 서버 측의 코드(.js .jsp .css)를 의미합니다. 
+<client>는 서버 측의 코드(.js .html .css)를 의미합니다.
+*이 많을 수록 난이도가 높다고 생각되는 작업입니다.
+
+아래의 내용을 보고 코딩을 할 수 있는 만큼 해주시고 결과물을 "project" repository에 commit해주세요
+본인이 코딩한 부분에는 반드시 본인이 코딩했음을 제3자가 보고 확인할 수 있도록 주석을 쓰십시오.
+
+예시1)
+... 코드 ... // (본인이름)
+
+예시2)
+// (본인이름) start
+ ... 
+ 코드 
+ ...
+// (본인이름) end
 
 
 * 처음 페이지에서 이름 입력 기능 추가 :
@@ -12,11 +26,11 @@
 * 플레이어의 이름을 canvas에 그리기
 
 
-* 플레이어 입장시 맵 생성 기능 개선 :
+** 플레이어 입장시 맵 생성 기능 개선 :
 <server>
 >> Map.java 내의 주석 참고
 
-* 몬스터 기본 AI 추가 :
+**** 몬스터 기본 AI 추가 :
 <server>
 Player SelectedPlayer;
 double distance;
@@ -56,25 +70,25 @@ if(몬스터와 몬스터target 간의 거리 < 60.0) { //공격 사거리 60.0
 }
 
 
-* Monster 객체의 랜덤 이동 메소드 추가
+*** Monster 객체의 랜덤 이동 메소드 추가
 
 
-* Monster target을 향해 이동 메소드 추가
+*** Monster target을 향해 이동 메소드 추가
 
 
-* Furniture 객체의 제거 메소드 추가 :
+** Furniture 객체의 제거 메소드 추가 :
 <server>
  ... Furniture 객체 블록 내부
 public void Delete() {
  해당 객체가 제거됨을 주변 플레이어에게 송신
- this=null
+ 해당 객체 제거
 }
 <client>
 case : "가구 제거"수신
  해당 가구 제거
 
 
-* Player 객체의 hp감소 메소드 추가 :
+** Player 객체의 hp감소 메소드 추가 :
 <server>
  ... Player 객체 블록 내부
 public void HpUpdate(int value) {
@@ -104,19 +118,19 @@ case : "game over"수신
  처음 화면으로 돌아가는 버튼 생성
 
 
-* Player 객체의 제거 메소드 추가 :
+** Player 객체의 제거 메소드 추가 :
 <server>
  ... Player 객체 블록 내부
 public void Delete() {
  해당 객체가 제거됨을 주변 플레이어에게 송신
- this=null
+ 해당 객체 제거
 }
 <client>
 case : "플레이어 제거"수신
  해당 플레이어 제거
 
 
-* 허기(ep) 추가 :
+** 허기(ep) 추가 :
 <server>
 for (모든 플레이어) {
  if(플레이어ep==0) {
@@ -129,7 +143,7 @@ for (모든 플레이어) {
 }
 
 
-* Player 객체의 ep감소 메소드 추가 :
+** Player 객체의 ep감소 메소드 추가 :
 <server>
  ... Player 객체 블록 내부
 public void EpUpdate(int value) {
@@ -142,7 +156,7 @@ case : "ep"수신
  p_ep = 수신받은 값
 
 
-* 음식 추가 :
+** 음식 추가 :
 <server>
 >> Food 클래스 추가
 <server>
@@ -155,12 +169,12 @@ if(플레이어와 음식 사이 거리<일정거리) {
 }
 
 
-* Food 객체의 제거 메소드 추가 :
+** Food 객체의 제거 메소드 추가 :
 <server>
  ... Furniture 객체 블록 내부
 public void Delete() {
  해당 객체가 제거됨을 주변 플레이어에게 송신
- this=null
+ 해당 객체 제거
 }
 <client>
 case : "음식 제거"수신
