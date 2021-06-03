@@ -26,10 +26,6 @@
 * 플레이어의 이름을 canvas에 그리기
 
 
-** 플레이어 입장시 맵 생성 기능 개선 :
-<server>
->> Map.java 내의 주석 참고
-
 **** 몬스터 기본 AI 추가 :
 <server>
 Player SelectedPlayer;
